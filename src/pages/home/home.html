@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Aside
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <!-- <ion-item *ngFor="let message of messages">
+      {{message.name}} | {{message.text}}
+    </ion-item> -->
+    <div *ngFor="let message of messages">
+      <message
+      [name]='message.name'
+      [text]='message.text'
+      ></message>
+    </div>
+  </ion-list>
+  <button (click)="showToast('Hello!','top')">Click</button>
+
+
+</ion-content>
+
+<ion-footer>
+  <form (ngSubmit)="messageForm()">
+    <ion-toolbar position="bottom">
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="newMessage.name" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Message</ion-label>
+        <ion-textarea [(ngModel)]="newMessage.text" name="description"></ion-textarea>
+      </ion-item>
+      <ion-buttons end>
+        <button ion-button type="submit" block>Send Message</button>
+      </ion-buttons>
+    </ion-toolbar>
+  </form>
+</ion-footer>
+
+
+<!-- <form [ngFormModel]="messageForm" (ngSubmit)="sendMessage(messageForm.value)">
+  <ion-toolbar position="bottom">
+    <ion-textarea placeholder="Type message here">
+    </ion-textarea>
+    <ion-buttons end>
+      <button type="submit" royal>Send</button>
+    </ion-buttons>
+  </ion-toolbar>
+</form> -->
